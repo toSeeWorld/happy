@@ -1,13 +1,14 @@
 import React from 'react';
 import t from 'prop-types';
-
+import './style/index'
 export interface AlertProps {
   kind?: 'info' | 'positive' | 'negative' | 'warning';
+  children: React.ReactNode
 }
 
 export type KindMap = Record<Required<AlertProps>['kind'], string>;
 
-const prefixCls = 'happy-alert';
+const prefixCls = 'happy-alerts';
 
 const kinds: KindMap = {
   info: '#5352ED',
