@@ -1,8 +1,8 @@
 {
-  "name": "happy-ui",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "@dingjia/happy-ui",
+  "version": "1.0.3",
+  "main": "./dist/happy-ui.umd.cjs",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -29,5 +29,11 @@
   "dependencies": {
     "prop-types": "^15.8.1",
     "vite": "^5.2.11"
-  }
+  },
+  "module": "./dist/happy-ui.umd.cjs",
+  "description": "",
+  "files": [
+    "dist",
+    "index.d.ts"
+  ]
 }
