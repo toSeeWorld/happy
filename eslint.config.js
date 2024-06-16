@@ -1,36 +1,39 @@
-import babelParser from '@babel/eslint-parser';
-import js from '@eslint/js';
+import babelParser from "@babel/eslint-parser";
+import eslintPluginPrettier from "eslint-plugin-prettier";
+import eslintConfigPrettier from "eslint-config-prettier";
+import globals from'globals'
+
+import js from "@eslint/js";
 export default [
+  js.configs.recommended,
+  eslintConfigPrettier,
   {
-    parserOptions: {
-      requireConfigFile: false,
-      ecmaVersion:2020,
-      babelOptions: {
-        babelrc: false,
-        configFile: false,
-        presets: ['@babel/preset-env'],
-      },
+    plugins: {
+      eslintPluginPrettier,
     },
   },
   {
+    // ...other config
     languageOptions: {
       parser: babelParser,
       parserOptions: {
         requireConfigFile: false,
-        ecmaVersion:2020,
+        ecmaVersion: 2020,
         babelOptions: {
           babelrc: false,
           configFile: false,
-          presets: ['@babel/preset-env'],
+          presets: ["@babel/preset-env"],
         },
+        
       },
+      globals: {
+        ...globals.browser,
+        myCustomGlobal: "readonly"
+    }
     },
-  },
-  js.configs.recommended,
-  {
+    plugins: {},
     rules: {
-      'no-unused-vars': 'warn',
-      'no-undef': 'warn',
+      "no-debugger": "error",
     },
   },
 ];
