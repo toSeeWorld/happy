@@ -27,7 +27,7 @@ const Alert: React.FC<AlertProps> = ({ children, kind = 'info', ...rest }) => (
     {children}
   </div>
 );
-const a = 'a';
+const a = "a";
 Alert.propTypes = {
   kind: t.oneOf(['info', 'positive', 'negative', 'warning']),
 };
