@@ -1,16 +1,12 @@
 import babelParser from "@babel/eslint-parser";
 import eslintPluginPrettier from "eslint-plugin-prettier";
 import eslintConfigPrettier from "eslint-config-prettier";
-import globals from'globals'
+import globals from "globals";
 
 import js from "@eslint/js";
 export default [
-  js.configs.recommended,
-  eslintConfigPrettier,
   {
-    plugins: {
-      eslintPluginPrettier,
-    },
+    ignores: ["dist/*"],
   },
   {
     // ...other config
@@ -24,16 +20,23 @@ export default [
           configFile: false,
           presets: ["@babel/preset-env"],
         },
-        
       },
-      globals: {
-        ...globals.browser,
-        myCustomGlobal: "readonly"
-    }
+      
+        globals: {
+          ...globals.browser,
+          myCustomGlobal: "readonly",
+        },
     },
     plugins: {},
     rules: {
       "no-debugger": "error",
+    },
+  },
+  js.configs.recommended,
+  eslintConfigPrettier,
+  {
+    plugins: {
+      eslintPluginPrettier,
     },
   },
 ];
