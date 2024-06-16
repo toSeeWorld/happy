@@ -1,9 +1,9 @@
 import React from 'react';
 import t from 'prop-types';
-import './style/index'
+import './style/index';
 export interface AlertProps {
   kind?: 'info' | 'positive' | 'negative' | 'warning';
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export type KindMap = Record<Required<AlertProps>['kind'], string>;
@@ -16,7 +16,6 @@ const kinds: KindMap = {
   negative: '#FF4757',
   warning: 'red',
 };
-
 const Alert: React.FC<AlertProps> = ({ children, kind = 'info', ...rest }) => (
   <div
     className={prefixCls}
@@ -28,7 +27,7 @@ const Alert: React.FC<AlertProps> = ({ children, kind = 'info', ...rest }) => (
     {children}
   </div>
 );
-
+const a = 'a';
 Alert.propTypes = {
   kind: t.oneOf(['info', 'positive', 'negative', 'warning']),
 };
