@@ -1,2 +1,2 @@
 export { default as Alert } from './alert';
-import test from './test.js'
+export { default as Popup} from './Popup'
