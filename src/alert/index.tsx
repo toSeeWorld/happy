@@ -1,15 +1,9 @@
 import React from 'react';
 import t from 'prop-types';
 import './style/index';
-export interface AlertProps {
-  kind?: 'info' | 'positive' | 'negative' | 'warning';
-  children: React.ReactNode;
-}
-
-export type KindMap = Record<Required<AlertProps>['kind'], string>;
+import { AlertProps, KindMap } from '../types'
 
 const prefixCls = 'happy-alerts';
-
 const kinds: KindMap = {
   info: '#5352ED',
   positive: '#2ED573',
@@ -28,7 +22,7 @@ const Alert: React.FC<AlertProps> = ({ children, kind = 'info', ...rest }) => (
   </div>
 );
 const a = "a";
-const A = ()=>{
+const A = () => {
   debugger
 }
 Alert.propTypes = {

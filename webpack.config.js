@@ -1,17 +1,22 @@
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const components = require('./component.json')
+const TerserPlugin = require('terser-webpack-plugin');
 /** @type
  * {import('webpack').Configuration
  */
 const config = {
     entry: './src/index.ts',
-    mode: 'development',
+    mode: 'production',
     output: {
 
         path: __dirname + '/dist',
-
-        filename: 'bundle.js'
+        library: {
+            name:'happyUi',
+            type: "umd",
+        },
+        filename: '[name].bundle.js'
     },
     module: {
         rules: [
@@ -35,9 +40,19 @@ const config = {
             }
         ],
     },
-    plugins: [ new CleanWebpackPlugin()],
+    plugins: [new CleanWebpackPlugin()],
     resolve: {
         extensions: ['.tsx', '.jsx', '.ts', '.js']
+    },
+    optimization:{
+        minimize:true,
+        minimizer:[
+            new TerserPlugin({  extractComments: false})
+        ]
+    },
+    externals:{
+        react:'React',
+        'react-dom':'ReactDOM'
     }
 }
 module.exports = config

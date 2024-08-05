@@ -1,9 +1,7 @@
 import React from "react";
 import './index.scss'
-interface PopupProps {
-    visible: boolean
-    onClose: Function
-}
+import { PopupProps } from "../types";
+
 const Popup: React.FC<PopupProps> = (props) => {
     return <div className="popup">
         here is popup
