@@ -1,7 +1,7 @@
 import React from 'react';
 import t from 'prop-types';
-import './style/index';
-import { AlertProps, KindMap } from '../types'
+import './index.scss';
+import { WarnProps, KindMap } from '../types'
 
 const prefixCls = 'happy-alerts';
 const kinds: KindMap = {
@@ -10,7 +10,7 @@ const kinds: KindMap = {
   negative: '#FF4757',
   warning: 'red',
 };
-const Alert: React.FC<AlertProps> = ({ children, kind = 'info', ...rest }) => (
+const Warn: React.FC<WarnProps> = ({ children, kind = 'info', ...rest }) => (
   <div
     className={prefixCls}
     style={{
@@ -21,12 +21,8 @@ const Alert: React.FC<AlertProps> = ({ children, kind = 'info', ...rest }) => (
     {children}
   </div>
 );
-const a = "a";
-const A = () => {
-  debugger
-}
-Alert.propTypes = {
+Warn.propTypes = {
   kind: t.oneOf(['info', 'positive', 'negative', 'warning']),
 };
 
-export default Alert;
+export default Warn;

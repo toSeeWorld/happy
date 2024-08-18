@@ -7,7 +7,7 @@ const TerserPlugin = require('terser-webpack-plugin');
  * {import('webpack').Configuration
  */
 const config = {
-    entry: './src/index.ts',
+    entry: components,
     mode: 'production',
     output: {
 
@@ -16,7 +16,7 @@ const config = {
             name: 'happyUi',
             type: "umd",
         },
-        filename: 'happy.bundle.js'
+        filename: '[name].js'
     },
     module: {
         rules: [

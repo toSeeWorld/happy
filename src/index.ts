@@ -1,2 +1,2 @@
-export { default as Alert } from './alert';
+export { default as Warn } from './Warn';
 export { default as Popup} from './Popup'

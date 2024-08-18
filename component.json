@@ -1,4 +1,4 @@
 {
-    "alert":"./src/alert",
+    "Warn":"./src/Warn",
     "Popup":"./src/Popup"
 }
