@@ -3,22 +3,18 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const components = require('./component.json')
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin');
 /** @type
  * {import('webpack').Configuration
  */
 const config = {
     entry: './src/index.ts',
-    mode: 'production',
-    output: {
-
-        path: __dirname + '/dist',
-        library: {
-            name: 'happyUi',
-            type: "umd",
-        },
-        filename: 'happy.bundle.js'
-    },
+    mode: 'development',
+    devServer: {
+        static: './dist',
+      },
+      
     module: {
         rules: [
             {
@@ -41,7 +37,7 @@ const config = {
             }
         ],
     },
-    plugins: [],
+    plugins: [new HtmlWebpackPlugin()],
     resolve: {
         extensions: ['.tsx', '.jsx', '.ts', '.js']
     },
